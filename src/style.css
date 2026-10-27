@@ -1,0 +1,2298 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+
+/* =============================================
+   ROOT VARIABLES
+============================================= */
+
+:root {
+
+    --bg: #0b0d0b;
+    --bg-soft: #111411;
+
+    --text: #f2f2ed;
+    --muted: #a7aaa3;
+
+    --accent: #d9dfc9;
+
+    --line: rgba(255, 255, 255, 0.13);
+    --line-soft: rgba(255, 255, 255, 0.08);
+
+    --max: 1400px;
+
+}
+
+
+/* =============================================
+   GLOBAL
+============================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    background: var(--bg);
+}
+
+body {
+
+    margin: 0;
+    padding: 0;
+
+    background: var(--bg);
+
+    color: var(--text);
+
+    font-family: "DM Sans", sans-serif;
+
+    overflow-x: hidden;
+
+}
+
+body,
+button,
+input,
+textarea {
+    font-family: "DM Sans", sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+img,
+video {
+    display: block;
+    max-width: 100%;
+}
+
+
+/* =============================================
+   PAGE PROGRESS
+============================================= */
+
+.page-progress {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 0%;
+
+    height: 3px;
+
+    background: #ffffff;
+
+    z-index: 9999;
+
+}
+
+
+/* =============================================
+   NAVBAR
+============================================= */
+
+.navbar {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 92px;
+
+    padding: 0 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    z-index: 1000;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.45),
+            transparent
+        );
+
+}
+
+
+.brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    color: white;
+
+}
+
+
+.brand-mark {
+
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid rgba(255,255,255,.45);
+
+    border-radius: 50%;
+
+    display: grid;
+
+    place-items: center;
+
+    font-family: "Manrope", sans-serif;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+}
+
+
+.brand-copy {
+
+    display: flex;
+
+    flex-direction: column;
+
+    line-height: 1;
+
+}
+
+
+.brand-copy strong {
+
+    font-family: "Manrope", sans-serif;
+
+    font-size: 16px;
+
+    letter-spacing: .18em;
+
+}
+
+
+.brand-copy small {
+
+    margin-top: 5px;
+
+    font-size: 8px;
+
+    letter-spacing: .22em;
+
+    color: rgba(255,255,255,.65);
+
+}
+
+
+.nav-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 34px;
+
+}
+
+
+.nav-links a {
+
+    position: relative;
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    letter-spacing: .08em;
+
+    text-transform: uppercase;
+
+}
+
+
+.nav-links a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -7px;
+
+    width: 0;
+
+    height: 1px;
+
+    background: white;
+
+    transition: width .35s ease;
+
+}
+
+
+.nav-links a:hover::after {
+
+    width: 100%;
+
+}
+
+
+.nav-links .nav-contact {
+
+    padding: 12px 17px;
+
+    border: 1px solid rgba(255,255,255,.45);
+
+    border-radius: 100px;
+
+}
+
+
+.nav-links .nav-contact::after {
+
+    display: none;
+
+}
+
+
+.menu-toggle {
+
+    display: none;
+
+}
+
+
+/* =============================================
+   HERO
+============================================= */
+
+.hero {
+
+    position: relative;
+
+    height: 100vh;
+
+    min-height: 720px;
+
+    overflow: hidden;
+
+    background: #080908;
+
+}
+
+
+.hero-video {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    max-width: none;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    z-index: 0;
+
+    transform: scale(1.015);
+
+}
+
+
+.hero-shade {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.72) 0%,
+            rgba(0,0,0,.38) 45%,
+            rgba(0,0,0,.12) 100%
+        ),
+
+        linear-gradient(
+            0deg,
+            rgba(0,0,0,.70) 0%,
+            transparent 42%,
+            rgba(0,0,0,.28) 100%
+        );
+
+}
+
+
+.hero-grain {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 3;
+
+    pointer-events: none;
+
+    opacity: .08;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+
+}
+
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 5;
+
+    width: min(
+        var(--max),
+        calc(100% - 84px)
+    );
+
+    margin: 0 auto;
+
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding-top: 55px;
+
+}
+
+
+.eyebrow {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 22px;
+
+    color: rgba(255,255,255,.82);
+
+    font-size: 11px;
+
+    letter-spacing: .2em;
+
+    font-weight: 600;
+
+}
+
+
+.live-dot {
+
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #e3ead1;
+
+    box-shadow:
+        0 0 15px rgba(220,235,190,.7);
+
+}
+
+
+.hero h1 {
+
+    margin: 0;
+
+    max-width: 950px;
+
+    font-family: "Manrope", sans-serif;
+
+    font-size: clamp(
+        58px,
+        8.4vw,
+        145px
+    );
+
+    line-height: .88;
+
+    letter-spacing: -.065em;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+}
+
+
+.hero h1 span {
+
+    color: transparent;
+
+    -webkit-text-stroke:
+        1px rgba(255,255,255,.85);
+
+}
+
+
+.hero-description {
+
+    max-width: 510px;
+
+    margin: 34px 0 30px;
+
+    color: rgba(255,255,255,.72);
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+}
+
+
+.hero-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+}
+
+
+.button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 18px;
+
+    min-height: 52px;
+
+    padding: 0 23px;
+
+    border-radius: 100px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: .08em;
+
+    text-transform: uppercase;
+
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        color .3s ease;
+
+}
+
+
+.button span {
+
+    font-size: 17px;
+
+    line-height: 1;
+
+}
+
+
+.button:hover {
+
+    transform: translateY(-3px);
+
+}
+
+
+.button-light {
+
+    background: #f0f1eb;
+
+    color: #11130f;
+
+}
+
+
+.button-light:hover {
+
+    background: white;
+
+}
+
+
+.text-link {
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: .08em;
+
+    text-transform: uppercase;
+
+}
+
+
+.text-link span {
+
+    margin-left: 8px;
+
+}
+
+
+.hero-bottom {
+
+    position: absolute;
+
+    z-index: 5;
+
+    left: 42px;
+
+    right: 42px;
+
+    bottom: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    color: rgba(255,255,255,.55);
+
+    font-size: 9px;
+
+    letter-spacing: .2em;
+
+}
+
+
+.hero-bottom span {
+
+    white-space: nowrap;
+
+}
+
+
+.scroll-cue {
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+
+.hero-counter {
+
+    position: absolute;
+
+    z-index: 5;
+
+    right: 42px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: rgba(255,255,255,.7);
+
+    font-size: 9px;
+
+    letter-spacing: .15em;
+
+}
+
+
+.counter-line {
+
+    width: 1px;
+
+    height: 50px;
+
+    background: rgba(255,255,255,.4);
+
+}
+
+
+/* =============================================
+   GENERAL SECTIONS
+============================================= */
+
+.section-pad {
+
+    padding: 125px 42px;
+
+}
+
+
+.section-label {
+
+    max-width: var(--max);
+
+    margin: 0 auto 90px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #c0c5bb;
+
+    font-size: 9px;
+
+    letter-spacing: .2em;
+
+    font-weight: 600;
+
+}
+
+
+/* =============================================
+   INTRO / JOURNEY
+============================================= */
+
+.intro {
+
+    position: relative;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(5, 8, 6, 0.90),
+            rgba(5, 8, 6, 0.65),
+            rgba(5, 8, 6, 0.38)
+        ),
+
+        url("/images/journey.png")
+        center / cover no-repeat;
+
+    background-attachment: fixed;
+
+}
+
+
+.intro-grid {
+
+    max-width: var(--max);
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1.35fr .65fr;
+
+    gap: 100px;
+
+    align-items: end;
+
+}
+
+
+.intro h2 {
+
+    margin: 0;
+
+    font-family: "Manrope", sans-serif;
+
+    font-size: clamp(
+        48px,
+        6vw,
+        92px
+    );
+
+    line-height: .95;
+
+    letter-spacing: -.055em;
+
+    font-weight: 600;
+
+}
+
+
+.intro h2 span {
+
+    color: #b4b9af;
+
+}
+
+
+.intro-copy {
+
+    max-width: 440px;
+
+}
+
+
+.intro-copy p {
+
+    margin: 0 0 35px;
+
+    color: #d1d4ce;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+}
+
+
+.underlined-link {
+
+    display: inline-flex;
+
+    gap: 10px;
+
+    padding-bottom: 8px;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.45);
+
+    font-size: 12px;
+
+    text-transform: uppercase;
+
+    letter-spacing: .1em;
+
+}
+
+
+.statement {
+
+    max-width: var(--max);
+
+    margin: 150px auto 0;
+
+    padding: 40px 0;
+
+    border-top: 1px solid var(--line);
+
+    border-bottom: 1px solid var(--line);
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 2fr 1fr;
+
+    align-items: center;
+
+}
+
+
+.statement-number,
+.statement-side {
+
+    color: #b5bbb1;
+
+    font-size: 9px;
+
+    letter-spacing: .2em;
+
+}
+
+
+.statement-side {
+
+    text-align: right;
+
+}
+
+
+.statement p {
+
+    margin: 0;
+
+    text-align: center;
+
+    font-family: "Manrope", sans-serif;
+
+    font-size: clamp(
+        26px,
+        3.5vw,
+        55px
+    );
+
+    line-height: .95;
+
+    letter-spacing: -.04em;
+
+}
+
+
+.statement p em {
+
+    color: #b1b6ad;
+
+    font-style: normal;
+
+}
+
+
+/* =============================================
+   SERVICES
+============================================= */
+
+.services {
+
+    position: relative;
+
+    background:
+
+        linear-gradient(
+            rgba(5, 8, 6, 0.87),
+            rgba(5, 8, 6, 0.79)
+        ),
+
+        url("/images/services.png")
+        center / cover no-repeat;
+
+    background-attachment: fixed;
+
+}
+
+
+.section-heading {
+
+    max-width: var(--max);
+
+    margin: 0 auto 70px;
+
+    display: flex;
+
+    align-items: end;
+
+    justify-content: space-between;
+
+}
+
+
+.section-heading h2 {
+
+    margin: 0;
+
+    font-family: "Manrope", sans-serif;
+
+    font-size: clamp(
+        52px,
+        6vw,
+        92px
+    );
+
+    line-height: .9;
+
+    letter-spacing: -.06em;
+
+}
+
+
+.section-heading p {
+
+    margin: 0;
+
+    color: #d0d4ce;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+}
+
+
+.service-grid {
+
+    max-width: var(--max);
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 1px;
+
+    background: var(--line);
+
+}
+
+
+/* =============================================
+   SERVICE CARDS
+============================================= */
+
+.service-card {
+
+    position: relative;
+
+    min-height: 470px;
+
+    padding: 30px;
+
+    background:
+        rgba(11, 15, 11, 0.78);
+
+    display: flex;
+
+    flex-direction: column;
+
+    overflow: hidden;
+
+    transition:
+        transform .4s ease,
+        background .4s ease;
+
+}
+
+
+/* Family & Leisure */
+
+.service-card:nth-child(1) {
+
+    background:
+
+        linear-gradient(
+            rgba(5, 8, 6, 0.58),
+            rgba(5, 8, 6, 0.80)
+        ),
+
+        url("/images/family-leisure.jpeg")
+        center / cover no-repeat;
+
+}
+
+
+/* Group Travel */
+
+.service-card:nth-child(2) {
+
+    background:
+
+        linear-gradient(
+            rgba(5, 8, 6, 0.58),
+            rgba(5, 8, 6, 0.80)
+        ),
+
+        url("/images/group-travel.jpeg")
+        center / cover no-repeat;
+
+}
+
+
+/* Custom Journeys */
+
+.service-card:nth-child(3) {
+
+    background:
+
+        linear-gradient(
+            rgba(5, 8, 6, 0.58),
+            rgba(5, 8, 6, 0.80)
+        ),
+
+        url("/images/custom-journeys.jpeg")
+        center / cover no-repeat;
+
+}
+
+
+/* Hover - Family & Leisure */
+
+.service-card:nth-child(1):hover {
+
+    background:
+
+        linear-gradient(
+            rgba(5, 8, 6, 0.42),
+            rgba(5, 8, 6, 0.70)
+        ),
+
+        url("/images/family-leisure.jpeg")
+        center / cover no-repeat;
+
+    transform: translateY(-5px);
+
+}
+
+
+/* Hover - Group Travel */
+
+.service-card:nth-child(2):hover {
+
+    background:
+
+        linear-gradient(
+            rgba(5, 8, 6, 0.42),
+            rgba(5, 8, 6, 0.70)
+        ),
+
+        url("/images/group-travel.jpeg")
+        center / cover no-repeat;
+
+    transform: translateY(-5px);
+
+}
+
+
+/* Hover - Custom Journeys */
+
+.service-card:nth-child(3):hover {
+
+    background:
+
+        linear-gradient(
+            rgba(5, 8, 6, 0.42),
+            rgba(5, 8, 6, 0.70)
+        ),
+
+        url("/images/custom-journeys.jpeg")
+        center / cover no-repeat;
+
+    transform: translateY(-5px);
+
+}
+
+
+.service-number {
+
+    position: relative;
+
+    z-index: 2;
+
+    color: #b9beb7;
+
+    font-size: 10px;
+
+    letter-spacing: .15em;
+
+}
+
+
+.service-icon {
+
+    position: absolute;
+
+    top: 27px;
+
+    right: 30px;
+
+    width: 38px;
+
+    height: 38px;
+
+    border: 1px solid var(--line);
+
+    border-radius: 50%;
+
+    display: grid;
+
+    place-items: center;
+
+    color: #d1d5ce;
+
+    z-index: 2;
+
+}
+
+
+.service-card h3 {
+
+    position: relative;
+
+    z-index: 2;
+
+    margin: auto 0 18px;
+
+    font-family: "Manrope", sans-serif;
+
+    font-size: 31px;
+
+    letter-spacing: -.035em;
+
+    font-weight: 600;
+
+}
+
+
+.service-card p {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 310px;
+
+    margin: 0;
+
+    color: #c4c9c1;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+}
+
+
+.service-bottom {
+
+    position: relative;
+
+    z-index: 2;
+
+    margin-top: 55px;
+
+    color: #aab0a6;
+
+    font-size: 9px;
+
+    letter-spacing: .17em;
+
+}
+
+
+/* =============================================
+   FLEET
+============================================= */
+
+.fleet {
+
+    min-height: 850px;
+
+    padding: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        1.25fr .75fr;
+
+    background: #0a0c0a;
+
+}
+
+
+.fleet-visual {
+
+    position: relative;
+
+    min-height: 850px;
+
+    background:
+
+        linear-gradient(
+            0deg,
+            rgba(0,0,0,.82),
+            rgba(0,0,0,.05) 65%
+        ),
+
+        url("/images/fleet.png")
+        center / cover no-repeat,
+
+        linear-gradient(
+            135deg,
+            #283027,
+            #0c0f0c
+        );
+
+    overflow: hidden;
+
+}
+
+
+.fleet-visual-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.15),
+            transparent
+        );
+
+}
+
+
+.fleet-caption {
+
+    position: absolute;
+
+    left: 50px;
+
+    bottom: 60px;
+
+    z-index: 2;
+
+}
+
+
+.fleet-caption span {
+
+    font-size: 9px;
+
+    letter-spacing: .2em;
+
+    color: rgba(255,255,255,.75);
+
+}
+
+
+.fleet-caption h2 {
+
+    margin: 15px 0 0;
+
+    font-family: "Manrope", sans-serif;
+
+    font-size: clamp(
+        50px,
+        6vw,
+        90px
+    );
+
+    line-height: .9;
+
+    letter-spacing: -.06em;
+
+}
+
+
+.fleet-caption h2 em {
+
+    color: rgba(255,255,255,.65);
+
+    font-style: normal;
+
+}
+
+
+.fleet-index {
+
+    position: absolute;
+
+    top: 38px;
+
+    left: 50px;
+
+    color: rgba(255,255,255,.65);
+
+    font-size: 9px;
+
+    letter-spacing: .2em;
+
+}
+
+
+.fleet-copy {
+
+    padding: 110px 70px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    background: rgba(8, 11, 8, .95);
+
+}
+
+
+.mini-label {
+
+    display: block;
+
+    margin-bottom: 28px;
+
+    color: #aeb4aa;
+
+    font-size: 9px;
+
+    letter-spacing: .2em;
+
+    font-weight: 600;
+
+}
+
+
+.fleet-copy h2 {
+
+    margin: 0;
+
+    font-family: "Manrope", sans-serif;
+
+    font-size: clamp(
+        45px,
+        5vw,
+        72px
+    );
+
+    line-height: .93;
+
+    letter-spacing: -.055em;
+
+}
+
+
+.fleet-copy p {
+
+    max-width: 430px;
+
+    margin: 35px 0;
+
+    color: #c1c6be;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+}
+
+
+.fleet-copy .button {
+
+    align-self: flex-start;
+
+}
+
+
+.fleet-copy small {
+
+    margin-top: 20px;
+
+    color: #92988f;
+
+    font-size: 10px;
+
+}
+
+
+/* =============================================
+   CLOSING / WHY MANJARE
+============================================= */
+
+.closing {
+
+    min-height: 720px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+
+        linear-gradient(
+            rgba(4, 7, 5, 0.62),
+            rgba(4, 7, 5, 0.80)
+        ),
+
+        url("/images/why-manjare.png")
+        center / cover no-repeat;
+
+    background-attachment: fixed;
+
+}
+
+
+.closing .mini-label {
+
+    margin-bottom: 35px;
+
+}
+
+
+.closing h2 {
+
+    margin: 0 0 45px;
+
+    font-family: "Manrope", sans-serif;
+
+    font-size: clamp(
+        65px,
+        9vw,
+        135px
+    );
+
+    line-height: .84;
+
+    letter-spacing: -.075em;
+
+}
+
+
+.closing h2 em {
+
+    color: #c0c5bc;
+
+    font-style: normal;
+
+}
+
+
+/* =============================================
+   CONTACT
+============================================= */
+
+.contact {
+
+    max-width: var(--max);
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        .8fr 1.2fr;
+
+    gap: 120px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(5, 8, 6, 0.93),
+            rgba(5, 8, 6, 0.80)
+        ),
+
+        url("/images/contact.png")
+        center / cover no-repeat;
+
+    background-attachment: fixed;
+
+}
+
+
+.contact-heading h2 {
+
+    margin: 0;
+
+    font-family: "Manrope", sans-serif;
+
+    font-size: clamp(
+        50px,
+        6vw,
+        85px
+    );
+
+    line-height: .9;
+
+    letter-spacing: -.06em;
+
+}
+
+
+.contact-form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 34px;
+
+}
+
+
+.contact-form label {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    color: #aeb4aa;
+
+    font-size: 10px;
+
+    letter-spacing: .16em;
+
+    text-transform: uppercase;
+
+}
+
+
+.contact-form input,
+.contact-form textarea {
+
+    width: 100%;
+
+    padding: 14px 0;
+
+    border: none;
+
+    border-bottom:
+        1px solid var(--line);
+
+    outline: none;
+
+    resize: vertical;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 16px;
+
+    letter-spacing: 0;
+
+    text-transform: none;
+
+    transition:
+        border-color .3s ease;
+
+}
+
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+
+    color: #9ba097;
+
+}
+
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+
+    border-color:
+        rgba(255,255,255,.7);
+
+}
+
+
+.submit-button {
+
+    align-self: flex-start;
+
+    border: none;
+
+    cursor: pointer;
+
+}
+
+
+.form-note {
+
+    margin: -20px 0 0;
+
+    color: #969c93;
+
+    font-size: 10px;
+
+    line-height: 1.6;
+
+}
+
+
+/* =============================================
+   FOOTER
+============================================= */
+
+.footer {
+
+    min-height: 220px;
+
+    padding: 45px 42px;
+
+    border-top:
+        1px solid var(--line);
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr 1fr;
+
+    align-items: start;
+
+    gap: 30px;
+
+    background: #080a08;
+
+    color: #92988f;
+
+    font-size: 9px;
+
+    letter-spacing: .15em;
+
+}
+
+
+.footer-brand {
+
+    justify-self: start;
+
+}
+
+
+.footer > span {
+
+    text-align: center;
+
+    padding-top: 14px;
+
+}
+
+
+.footer > a:nth-child(3) {
+
+    justify-self: end;
+
+    padding-top: 14px;
+
+}
+
+
+.footer > small {
+
+    grid-column: 1 / -1;
+
+    color: #70766d;
+
+    align-self: end;
+
+}
+
+
+/* =============================================
+   REVEAL ANIMATION
+============================================= */
+
+.reveal {
+
+    opacity: 0;
+
+    transform: translateY(35px);
+
+    transition:
+
+        opacity .9s ease,
+
+        transform .9s
+        cubic-bezier(.2,.7,.2,1);
+
+}
+
+
+.reveal.visible {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+}
+
+
+/* =============================================
+   MOBILE
+============================================= */
+
+@media (max-width: 900px) {
+
+    /* Fixed backgrounds are disabled
+       on mobile for better performance. */
+
+    .intro,
+    .services,
+    .closing,
+    .contact {
+
+        background-attachment: scroll;
+
+    }
+
+
+    .navbar {
+
+        height: 76px;
+
+        padding: 0 22px;
+
+    }
+
+
+    .nav-links {
+
+        position: fixed;
+
+        inset: 0;
+
+        height: 100vh;
+
+        padding:
+            120px 30px 40px;
+
+        background:
+            rgba(8,10,8,.97);
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 25px;
+
+        transform:
+            translateX(100%);
+
+        transition:
+            transform .4s ease;
+
+    }
+
+
+    .nav-links.open {
+
+        transform:
+            translateX(0);
+
+    }
+
+
+    .nav-links a {
+
+        font-size: 18px;
+
+    }
+
+
+    .nav-links .nav-contact {
+
+        font-size: 12px;
+
+    }
+
+
+    .menu-toggle {
+
+        position: relative;
+
+        z-index: 1001;
+
+        width: 42px;
+
+        height: 42px;
+
+        padding: 0;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 6px;
+
+        border:
+            1px solid rgba(255,255,255,.35);
+
+        border-radius: 50%;
+
+        background: transparent;
+
+        cursor: pointer;
+
+    }
+
+
+    .menu-toggle span {
+
+        width: 16px;
+
+        height: 1px;
+
+        background: white;
+
+        transition:
+            transform .3s ease;
+
+    }
+
+
+    .hero-content {
+
+        width:
+            calc(100% - 44px);
+
+    }
+
+
+    .hero h1 {
+
+        font-size:
+            clamp(
+                52px,
+                15vw,
+                100px
+            );
+
+    }
+
+
+    .hero-description {
+
+        font-size: 14px;
+
+        max-width: 390px;
+
+    }
+
+
+    .hero-bottom {
+
+        left: 22px;
+
+        right: 22px;
+
+    }
+
+
+    .hero-bottom span:first-child,
+    .hero-location {
+
+        display: none;
+
+    }
+
+
+    .hero-counter {
+
+        right: 22px;
+
+    }
+
+
+    .section-pad {
+
+        padding:
+            90px 22px;
+
+    }
+
+
+    .section-label {
+
+        margin-bottom: 60px;
+
+    }
+
+
+    .intro-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+
+    }
+
+
+    .statement {
+
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+
+    }
+
+
+    .statement p {
+
+        text-align: left;
+
+    }
+
+
+    .statement-side {
+
+        text-align: left;
+
+    }
+
+
+    .section-heading {
+
+        display: block;
+
+        margin-bottom: 50px;
+
+    }
+
+
+    .section-heading p {
+
+        margin-top: 25px;
+
+    }
+
+
+    .service-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .service-card {
+
+        min-height: 380px;
+
+    }
+
+
+    .fleet {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .fleet-visual {
+
+        min-height: 620px;
+
+    }
+
+
+    .fleet-copy {
+
+        padding:
+            85px 22px;
+
+    }
+
+
+    .contact {
+
+        grid-template-columns: 1fr;
+
+        gap: 65px;
+
+    }
+
+
+    .footer {
+
+        padding:
+            35px 22px;
+
+        grid-template-columns: 1fr;
+
+        text-align: left;
+
+    }
+
+
+    .footer > span,
+    .footer > a:nth-child(3) {
+
+        justify-self: start;
+
+        text-align: left;
+
+        padding-top: 0;
+
+    }
+
+
+    .footer > small {
+
+        grid-column: auto;
+
+    }
+
+}
+
+
+/* =============================================
+   SMALL MOBILE
+============================================= */
+
+@media (max-width: 560px) {
+
+    .brand-copy strong {
+
+        font-size: 13px;
+
+    }
+
+
+    .brand-copy small {
+
+        font-size: 7px;
+
+    }
+
+
+    .hero {
+
+        min-height: 650px;
+
+    }
+
+
+    .hero h1 {
+
+        font-size: 52px;
+
+    }
+
+
+    .hero h1 span {
+
+        -webkit-text-stroke:
+            .7px rgba(255,255,255,.85);
+
+    }
+
+
+    .hero-actions {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+
+    .hero-bottom {
+
+        bottom: 22px;
+
+    }
+
+
+    .section-label {
+
+        font-size: 8px;
+
+    }
+
+
+    .intro h2,
+    .section-heading h2 {
+
+        font-size: 52px;
+
+    }
+
+
+    .statement {
+
+        margin-top: 90px;
+
+    }
+
+
+    .service-card {
+
+        min-height: 350px;
+
+    }
+
+
+    .service-card h3 {
+
+        font-size: 27px;
+
+    }
+
+
+    .fleet-visual {
+
+        min-height: 500px;
+
+    }
+
+
+    .fleet-caption {
+
+        left: 22px;
+
+        bottom: 35px;
+
+    }
+
+
+    .fleet-index {
+
+        left: 22px;
+
+        top: 25px;
+
+    }
+
+
+    .closing {
+
+        min-height: 600px;
+
+    }
+
+
+    .closing h2 {
+
+        font-size: 62px;
+
+    }
+
+
+    .contact-heading h2 {
+
+        font-size: 55px;
+
+    }
+
+}
+
+
+/* =============================================
+   REDUCED MOTION
+============================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+
+        scroll-behavior: auto;
+
+    }
+
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            .01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            .01ms !important;
+
+    }
+
+
+    .reveal {
+
+        opacity: 1;
+
+        transform: none;
+
+    }
+
+}
+/* =============================================
+   VEHICLES CATALOGUE PAGE
+============================================= */
+.vehicles-page { background: var(--bg); }
+.vehicles-navbar { background: linear-gradient(to bottom, rgba(0,0,0,.7), rgba(0,0,0,.08)); }
+.vehicles-page .nav-links a[aria-current="page"]::after { width: 100%; }
+.vehicles-hero { position: relative; min-height: 590px; display: flex; align-items: center; padding: 145px max(6vw, 24px) 90px; overflow: hidden; background: #101512 url('/images/fleet.png') center 48% / cover no-repeat; }
+.vehicles-hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(7,10,8,.91) 0%, rgba(7,10,8,.7) 48%, rgba(7,10,8,.35) 100%); }
+.vehicles-hero-shade { position: absolute; inset: 0; background: linear-gradient(0deg, var(--bg) 0%, transparent 32%); }
+.vehicles-hero-content { position: relative; z-index: 1; max-width: 700px; }
+.vehicles-hero-content .mini-label { color: var(--accent); }
+.vehicles-hero h1 { margin: 24px 0 18px; font-family: "Manrope", sans-serif; font-size: clamp(48px, 7vw, 88px); line-height: .99; letter-spacing: -.055em; }
+.vehicles-hero h1 em, .vehicles-cta h2 em { color: var(--accent); font-style: normal; }
+.vehicles-hero p { max-width: 470px; color: var(--muted); font-size: 16px; line-height: 1.8; margin: 0 0 28px; }
+.vehicles-hero-bottom { position: absolute; left: max(6vw, 24px); right: max(6vw, 24px); bottom: 28px; display: flex; justify-content: space-between; color: rgba(255,255,255,.55); font-size: 9px; letter-spacing: .18em; }
+.vehicles-catalogue { padding-top: 58px; padding-bottom: 95px; }
+.vehicles-catalogue-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 38px; }
+.vehicles-catalogue-heading h2 { margin: 14px 0 10px; font-family: "Manrope", sans-serif; font-size: clamp(36px, 5vw, 58px); line-height: 1.05; letter-spacing: -.045em; }
+.vehicles-catalogue-heading p { margin: 0; color: var(--muted); font-size: 14px; }
+.fleet-total { display: flex; align-items: center; gap: 14px; padding: 14px 18px; border: 1px solid var(--line); border-radius: 4px; }
+.fleet-total strong { font-family: "Manrope", sans-serif; font-size: 32px; }
+.fleet-total span { max-width: 90px; color: var(--muted); font-size: 9px; line-height: 1.5; letter-spacing: .12em; }
+.vehicle-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.vehicle-card { min-width: 0; overflow: hidden; border: 1px solid var(--line); background: linear-gradient(150deg, #141914, #0d100d); }
+.vehicle-image-wrap { position: relative; aspect-ratio: 1.5 / 1; overflow: hidden; background: #1a201b; }
+.vehicle-image-wrap::after { content: ""; position: absolute; inset: 45% 0 0; background: linear-gradient(transparent, rgba(8,10,8,.55)); pointer-events: none; }
+.vehicle-image-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform .65s cubic-bezier(.2,.65,.3,1); }
+.vehicle-card:hover .vehicle-image-wrap img { transform: scale(1.045); }
+.vehicle-category { position: absolute; z-index: 1; bottom: 16px; left: 18px; color: white; font-size: 9px; letter-spacing: .14em; }
+.vehicle-card-body { padding: 24px 22px 22px; }
+.vehicle-title-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.vehicle-year { color: var(--muted); font-size: 9px; letter-spacing: .14em; }
+.vehicle-title-row h3 { margin: 7px 0 0; font-family: "Manrope", sans-serif; font-size: clamp(18px, 1.6vw, 23px); line-height: 1.25; }
+.vehicle-color { display: inline-flex; align-items: center; gap: 7px; padding-top: 4px; color: var(--muted); font-size: 10px; white-space: nowrap; }
+.color-swatch { display: inline-block; width: 10px; height: 10px; border-radius: 50%; border: 1px solid rgba(255,255,255,.4); }
+.swatch-gold { background: #b69a62; }.swatch-white { background: #f4f3ed; }.swatch-brown-grey { background: #625b50; }
+.vehicle-description { min-height: 48px; margin: 18px 0 20px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+.vehicle-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 17px 0 20px; border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
+.vehicle-facts > div { display: flex; flex-direction: column; gap: 7px; }
+.fact-label { color: var(--muted); font-size: 10px; }
+.vehicle-facts strong { font-size: 12px; font-weight: 600; }
+.vehicle-enquire { width: 100%; margin-top: 20px; min-height: 48px; padding: 0 12px; font-size: 10px; gap: 10px; }
+.vehicle-disclaimer { max-width: 950px; margin: 24px 0 0; color: #898e86; font-size: 11px; line-height: 1.7; }
+.vehicles-cta { position: relative; display: flex; align-items: center; justify-content: space-between; min-height: 430px; overflow: hidden; background: #141813; }
+.vehicles-cta::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 80% 50%, rgba(217,223,201,.09), transparent 42%); pointer-events: none; }
+.vehicles-cta-copy { position: relative; z-index: 1; max-width: 620px; }
+.vehicles-cta h2 { margin: 20px 0; font-family: "Manrope", sans-serif; font-size: clamp(42px, 6vw, 70px); line-height: 1.02; letter-spacing: -.05em; }
+.vehicles-cta p { max-width: 520px; margin: 0 0 26px; color: var(--muted); line-height: 1.8; }
+.vehicles-cta-mark { color: rgba(217,223,201,.06); font-family: "Manrope", sans-serif; font-size: clamp(180px, 30vw, 400px); font-weight: 800; line-height: 1; }
+@media (max-width: 1000px) { .vehicle-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .vehicle-card:last-child { grid-column: 1 / -1; max-width: calc(50% - 10px); } }
+@media (max-width: 650px) { .vehicles-hero { min-height: 560px; padding-top: 125px; padding-bottom: 90px; background-position: 58% center; } .vehicles-hero h1 { font-size: clamp(48px, 14vw, 68px); } .vehicles-hero p { font-size: 14px; } .vehicles-hero-bottom { font-size: 8px; gap: 18px; } .vehicles-hero-bottom span:last-child { text-align: right; } .vehicles-catalogue { padding-top: 44px; padding-bottom: 65px; } .vehicles-catalogue-heading { align-items: flex-start; flex-direction: column; } .fleet-total { padding: 10px 14px; } .vehicle-grid { grid-template-columns: 1fr; gap: 18px; } .vehicle-card:last-child { grid-column: auto; max-width: none; } .vehicle-title-row h3 { font-size: 22px; } .vehicle-description { min-height: 0; } .vehicle-card-body { padding: 22px 18px 18px; } .vehicles-cta { min-height: 390px; } .vehicles-cta-mark { position: absolute; right: -10px; bottom: 5px; font-size: 210px; } }
